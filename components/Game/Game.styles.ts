@@ -10,10 +10,6 @@ const selectionSize = Math.round(
   window.height - menuBarBuffer - size - 2 * gameMargin - space
 );
 
-console.log("size: " + size);
-console.log("selectionSize: " + selectionSize);
-console.log("window.height: " + window.height);
-
 export default StyleSheet.create({
   Game: {
     alignItems: "center",

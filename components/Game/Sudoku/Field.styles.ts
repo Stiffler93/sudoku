@@ -19,7 +19,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   Active: {
-    backgroundColor: "blue",
+    backgroundColor: "rgba(0, 0, 255, 0.2)",
   },
   ValuePreset: {
     fontWeight: "bold",

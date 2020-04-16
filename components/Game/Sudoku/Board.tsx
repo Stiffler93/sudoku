@@ -1,28 +1,27 @@
-import React, { useState } from "react";
-import { Text, View, Button } from "react-native";
+import React from "react";
+import { View } from "react-native";
 import styles from "./Board.styles";
 import Field from "./Field";
-import { useGameContextProvider } from "./Game.context";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { useGameContextProvider } from "../Game.context";
 
 interface BoardProps {
-  fields: number[][];
   style?: any;
 }
 
 const Board = (props: BoardProps) => {
-  const { fields } = props;
   const gameContext = useGameContextProvider();
 
   return (
     <View style={{ ...styles.Board, ...props.style }}>
-      {fields &&
-        fields.map((field, index) => (
+      {gameContext.fields &&
+        gameContext.fields.map((field, index) => (
           <Field
             key={`${index}`}
             style={{ ...styles.Field, ...getFieldStyle(index) }}
             value={field}
             active={index === gameContext.active}
+            preset={gameContext.presetValues.includes(index)}
+            onPress={gameContext.setActive.bind(undefined, index)}
           />
         ))}
     </View>

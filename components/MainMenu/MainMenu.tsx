@@ -14,8 +14,36 @@ const MainMenuScreen = (props: MainMenuScreenProps) => {
     <View>
       <Text>Main Menu Screen</Text>
       <Button
-        title="New Game"
-        onPress={() => navigation.navigate("Loading", { nextScreen: "Game" })}
+        title="Beginner"
+        onPress={() =>
+          navigation.navigate("Levels", {
+            difficulty: "Beginner",
+          })
+        }
+      />
+      <Button
+        title="Advanced"
+        onPress={() =>
+          navigation.navigate("Levels", {
+            difficulty: "Advanced",
+          })
+        }
+      />
+      <Button
+        title="Professional"
+        onPress={() =>
+          navigation.navigate("Levels", {
+            difficulty: "Professional",
+          })
+        }
+      />
+      <Button
+        title="Maniac"
+        onPress={() =>
+          navigation.navigate("Levels", {
+            difficulty: "Maniac",
+          })
+        }
       />
     </View>
   );

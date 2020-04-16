@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, View, Button } from "react-native";
 import styles from "./Field.styles";
-import { useGameContextProvider } from "./Game.context";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 interface FieldProps {
@@ -23,7 +22,7 @@ const Field = (props: FieldProps) => {
     <View style={{ ...styles.Field, ...activeStyle, ...props.style }}>
       <TouchableWithoutFeedback
         onPress={() => {
-          console.log("onPress");
+          if (onPress && !preset) onPress();
         }}
         style={styles.FieldTouchable}
       >

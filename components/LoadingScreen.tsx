@@ -11,9 +11,7 @@ const LoadingScreen = (props: LoadingScreenProps) => {
   const { nextScreen } = route?.params;
 
   function start() {
-    console.log("Start loading Screen");
     setTimeout(() => {
-      console.log("Navigate to: " + nextScreen);
       props.navigation.navigate(nextScreen);
     }, 2000);
   }

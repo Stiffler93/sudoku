@@ -7,6 +7,8 @@ import LoadingScreen from "./components/LoadingScreen";
 import MainMenuScreen from "./components/MainMenu/MainMenu";
 import GameScreen from "./components/Game/Game";
 
+import Levels from "./components/Levels/Levels";
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -22,6 +24,7 @@ export default function App() {
           initialParams={{ nextScreen: "Main Menu" }}
           component={LoadingScreen as ComponentType}
         />
+        <Stack.Screen name="Levels" component={Levels} />
         <Stack.Screen name="Game" component={GameScreen} />
       </Stack.Navigator>
     </NavigationContainer>
