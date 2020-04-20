@@ -4,9 +4,7 @@ import styles from "./Game.styles";
 import Board from "./Sudoku/Board";
 import FieldSelection from "./Sudoku/FieldSelection";
 import GameContext from "./Game.context";
-import { GameData } from "./Game.interfaces";
-import validate from "../../logic/SudokuValidator";
-import create from "../../logic/SudokuCreator";
+import { Level } from "../Levels/Levels.interfaces";
 
 interface GameScreenProps {
   navigation: any;
@@ -16,9 +14,9 @@ interface GameScreenProps {
 
 const GameScreen = (props: GameScreenProps) => {
   const { navigation, route } = props;
-  const game = props.route.params as GameData;
+  const game = props.route.params as Level;
 
-  const [template, solution] = game.data.split("/");
+  const [template, solution] = game.sudoku.split("/");
   const gridNums = template.split("").map((num) => parseInt(num, 10));
   const grid = gridNums.map((num) => (num === 0 ? [] : [num]));
   const presetValues = gridNums
@@ -50,12 +48,7 @@ const GameScreen = (props: GameScreenProps) => {
                   check(fields, solution);
                 }}
               />
-              <Button
-                title="Hint"
-                onPress={() => {
-                  create();
-                }}
-              />
+              <Button title="Hint" onPress={() => {}} />
               <Button
                 title="Reset"
                 onPress={() => {

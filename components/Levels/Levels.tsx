@@ -3,9 +3,9 @@ import { View } from "react-native";
 import styles from "./Levels.styles";
 
 import * as Sudokus from "../../assets/Sudokus.json";
-import { FlatList } from "react-native-gesture-handler";
 import LevelItem from "./LevelItem";
-import { GameData } from "../Game/Game.interfaces";
+import { Level } from "./Levels.interfaces";
+import { ScrollView } from "react-native-gesture-handler";
 
 interface LevelsProps {
   navigation: any;
@@ -17,30 +17,40 @@ const Levels = (props: LevelsProps) => {
   const { navigation, route, style } = props;
   const { difficulty } = route.params;
 
-  const games = getGamesForDifficulty(difficulty);
+  const levels = getLevelsForDifficulty(difficulty).map((level) => {
+    return { ...level, difficulty };
+  });
 
-  function openGame(data: GameData) {
-    navigation.navigate("Game", data);
+  function openLevel(level: Level) {
+    navigation.navigate("Game", level);
   }
 
+  const NUM_LEVELS = levels.length;
+  const levelsInLastRow = NUM_LEVELS % 3;
+  const firstIndexInLastRow = NUM_LEVELS - levelsInLastRow;
+
   return (
-    <View style={{ ...styles.Levels, ...style }}>
-      <FlatList
-        data={games}
-        renderItem={(item) => (
+    <ScrollView style={{ ...style }}>
+      <View style={styles.Levels}>
+        {levels.map((level, index) => (
           <LevelItem
-            {...item}
-            difficulty={difficulty}
-            onPress={(data) => openGame(data)}
-          ></LevelItem>
-        )}
-        keyExtractor={(elem) => elem}
-      ></FlatList>
-    </View>
+            style={
+              index >= firstIndexInLastRow
+                ? styles.LastLevelItem
+                : styles.LevelItem
+            }
+            key={`Level${index}`}
+            level={level}
+            index={index}
+            onPress={(l: Level) => openLevel(l)}
+          />
+        ))}
+      </View>
+    </ScrollView>
   );
 };
 
-function getGamesForDifficulty(difficulty: string) {
+function getLevelsForDifficulty(difficulty: string) {
   switch (difficulty) {
     case "Advanced":
       return Sudokus.Games.Advanced;
