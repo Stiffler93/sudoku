@@ -4,7 +4,7 @@ import styles from "./LevelItem.styles";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { Level } from "./Levels.interfaces";
 import Number from "../Elements/Number";
-import { getImage } from "../Assets";
+import { getImage } from "../../Assets";
 
 interface LevelItemProps {
   level: Level;
