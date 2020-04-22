@@ -9,13 +9,13 @@ import { ScrollView } from "react-native-gesture-handler";
 
 interface LevelsProps {
   navigation: any;
-  params: any;
+  route: any;
   style?: any;
 }
 
 const Levels = (props: LevelsProps) => {
-  const { navigation, params, style } = props;
-  const { difficulty } = params;
+  const { navigation, route, style } = props;
+  const { difficulty } = route.params;
 
   const levels = getLevelsForDifficulty(difficulty).map((level) => {
     return { ...level, difficulty };

@@ -2,6 +2,8 @@ import React, { ComponentType } from "react";
 import { Text, View, Button } from "react-native";
 import styles from "./MainMenu.styles";
 import SudokuBackground from "./SudokuBackground";
+import MenuGroup from "./MenuGroup";
+import Title from "./Title";
 
 interface MainMenuScreenProps {
   navigation: any;
@@ -10,12 +12,17 @@ interface MainMenuScreenProps {
 
 const MainMenuScreen = (props: MainMenuScreenProps) => {
   const { navigation } = props;
-  console.log(navigation);
 
   return (
-    <View>
-      <SudokuBackground></SudokuBackground>
-      <Button
+    <View style={styles.MainMenu}>
+      <SudokuBackground style={styles.SudokuBackground}></SudokuBackground>
+      <Title style={styles.Title}></Title>
+      <MenuGroup
+        title="New Game"
+        style={styles.NewGame}
+        fill="#ff0000"
+      ></MenuGroup>
+      {/* <Button
         title="Beginner"
         onPress={() =>
           navigation.navigate("Levels", {
@@ -46,7 +53,7 @@ const MainMenuScreen = (props: MainMenuScreenProps) => {
             difficulty: "Maniac",
           })
         }
-      />
+      /> */}
     </View>
   );
 };

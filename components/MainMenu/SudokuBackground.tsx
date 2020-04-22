@@ -3,18 +3,22 @@ import Svg, { Path } from "react-native-svg";
 
 interface SudokuBackgroundProps {
   width?: number;
-  height?: number;
   fill?: string;
   color?: string;
+  style?: any;
 }
 const SudokuBackground = (props: SudokuBackgroundProps) => {
-  const width = props.width || 400;
-  const height = props.height || 400;
-  const fill = props.fill || "none";
-  const color = props.color || "#000";
+  const width = props.width || props.style?.width || 400;
+  const fill = props.fill || props.style?.color || "none";
+  const color = props.color || props.style?.color || "#000";
 
   return (
-    <Svg width={width} height={height} viewBox="0 0 1456 1456">
+    <Svg
+      style={props.style}
+      width={width}
+      height={width}
+      viewBox="0 0 1456 1456"
+    >
       <Path
         fill={fill}
         stroke={color}
