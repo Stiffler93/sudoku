@@ -13,7 +13,7 @@ export default StyleSheet.create({
     height: "100%",
   },
   Number: {
-    height: "100%",
+    height: 45,
   },
   Done: {
     alignSelf: "flex-end",

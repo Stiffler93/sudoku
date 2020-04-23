@@ -6,7 +6,4 @@ export default StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  Image: {
-    resizeMode: "contain",
-  },
 });

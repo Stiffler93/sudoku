@@ -28,7 +28,6 @@ const LevelItem = (props: LevelItemProps) => {
       >
         <View style={styles.View}>
           <Number style={styles.Number} num={levelNum}></Number>
-          {/* <Text style={styles.Text}>{sudoku}</Text> */}
         </View>
       </TouchableWithoutFeedback>
       <Image
