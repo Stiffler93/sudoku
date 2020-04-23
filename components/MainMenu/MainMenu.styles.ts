@@ -1,5 +1,10 @@
 import { StyleSheet } from "react-native";
-import { WIDTH, MARGIN_LARGE, MARGIN_HUGE } from "../../Dimensions";
+import {
+  WIDTH,
+  MARGIN_HUGE,
+  MARGIN_MEDIUM,
+  MARGIN_SMALL,
+} from "../../Dimensions";
 
 export default StyleSheet.create({
   MainMenu: {
@@ -17,5 +22,11 @@ export default StyleSheet.create({
   },
   NewGame: {
     width: Math.floor(WIDTH * 0.9),
+  },
+  NewGameButton: {
+    width: Math.floor(WIDTH * 0.4 - 2 * MARGIN_SMALL),
+    padding: MARGIN_MEDIUM,
+    margin: MARGIN_SMALL,
+    color: "grey",
   },
 });
