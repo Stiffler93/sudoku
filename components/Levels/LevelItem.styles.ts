@@ -1,6 +1,12 @@
 import { StyleSheet } from "react-native";
+import { WIDTH } from "../../Dimensions";
 
 export default StyleSheet.create({
+  ItemBackground: {
+    position: "absolute",
+    width: Math.floor(WIDTH / 3),
+    color: "rgba(0, 0, 0, 0.4)",
+  },
   Text: {
     fontFamily: "Courier",
   },
@@ -8,6 +14,9 @@ export default StyleSheet.create({
     padding: 5,
     borderWidth: 1,
     borderRadius: 10,
+    overflow: "hidden",
+    justifyContent: "center",
+    alignItems: "center",
   },
   View: {
     height: "100%",

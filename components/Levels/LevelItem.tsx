@@ -5,6 +5,7 @@ import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { Level } from "./Levels.interfaces";
 import Number from "../Elements/Number";
 import { getImage } from "../../Assets";
+import ItemBackground from "./ItemBackground";
 
 interface LevelItemProps {
   level: Level;
@@ -21,22 +22,23 @@ const LevelItem = (props: LevelItemProps) => {
 
   return (
     <View style={{ ...styles.LevelItem, ...difficultyStyle, ...props.style }}>
+      <ItemBackground style={styles.ItemBackground}></ItemBackground>
       <TouchableWithoutFeedback
         onPress={() => {
           if (props.onPress) props.onPress(props.level);
         }}
       >
-        <View style={styles.View}>
-          <Number style={styles.Number} num={levelNum}></Number>
-        </View>
+        {/* <View style={styles.View}> */}
+        <Number style={styles.Number} num={levelNum}></Number>
+        {/* </View> */}
       </TouchableWithoutFeedback>
-      <Image
+      {/* <Image
         style={{
           ...styles.Done,
           ...{ transform: [{ translateY: -doneImage.height }] },
         }}
         source={doneImage.image}
-      ></Image>
+      ></Image> */}
     </View>
   );
 };

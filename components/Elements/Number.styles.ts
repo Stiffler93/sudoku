@@ -6,4 +6,8 @@ export default StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
+  Digit: {
+    backgroundColor: "yellow",
+    color: "red",
+  },
 });
